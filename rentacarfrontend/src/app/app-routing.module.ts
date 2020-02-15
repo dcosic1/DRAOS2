@@ -11,6 +11,8 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { PaymentComponent } from './payment/payment.component';
+
 
 const routes: Routes = [
   {
@@ -48,6 +50,10 @@ const routes: Routes = [
     path: 'manageUsers',
     component: ManageUsersComponent,
     canActivate: [AdminGuard]
+  },
+  {
+    path: 'payment',
+    component: PaymentComponent
   },
   {
     path: '',

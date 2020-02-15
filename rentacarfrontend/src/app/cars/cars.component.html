@@ -20,11 +20,11 @@
     <h5 class="card-title"> {{car.brand}} {{car.model}} </h5>
     <p class="card-text"> {{car.description}} </p>
     <div *ngIf='admin == "admin"'>
-    <i (click)="deleteCar(car.id)" class = "fa fa-trash" style="color: rgb(245, 202, 202)"></i>
-  </div>
-  <div *ngIf='admin != "admin"'>
-    <a class="btn btn-primary nav-link" (click)="openModal(modalCarDetails, car)">Details</a>
-  </div>
+      <i (click)="deleteCar(car.id)" class="fa fa-trash" style="color: rgb(245, 202, 202)"></i>
+    </div>
+    <div *ngIf='admin != "admin"'>
+      <a class="btn btn-primary nav-link" (click)="openModal(modalCarDetails, car)">Details</a>
+    </div>
   </div>
 </div>
 
@@ -43,17 +43,18 @@
     </carousel>
     <hr>
     <p> {{currentCar.description}} </p>
-    <p> Car year: {{currentCar.year}} </p>
-    <p> Price per day: {{currentCar.pricePerDay | currency}} </p>
+    <p> Year: {{currentCar.year}} </p>
+    <p> Brand: {{currentCar.brand}} </p>
+    <p> Model: {{currentCar.model}} </p>
+    <p> Type: {{currentCar.carType}} </p>
+    <p> Price: {{currentCar.pricePerDay | currency}} </p>
     Days for rent:
     <input type="text" placeholder="Choose your dates" bsDaterangepicker [bsConfig]="dpConfig"
       (bsValueChange)="onValueChange($event)" />
   </div>
   <div class="modal-footer">
-    <button class="btn btn-primary" (click)="onCreateReservation()" routerLink="/booking" [disabled]="!dateValid">Create
-      reservation</button>
-    <button class="btn btn-primary" (click)="onRentCar()" routerLink="/booking" [disabled]="!dateValid">Rent this
-      car</button>
+    <button class="btn btn-primary" (click)="onCreateReservation()" routerLink="/booking" [disabled]="!dateValid">Rent
+    </button>
   </div>
 </ng-template>
 

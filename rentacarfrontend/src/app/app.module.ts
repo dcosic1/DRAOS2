@@ -23,6 +23,7 @@ import {LoginComponent} from './login/login.component';
 import { AngularWebStorageModule } from 'angular-web-storage';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { PaymentComponent } from './payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     ContactComponent,
     RegistrationComponent,
     LoginComponent,
-    ManageUsersComponent
+    ManageUsersComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,

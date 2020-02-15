@@ -90,6 +90,7 @@ export class CarsComponent implements OnInit {
     this.currentCar.model = currentCar.model;
     this.currentCar.description = currentCar.description;
     this.currentCar.year = currentCar.year;
+    this.currentCar.carType = currentCar.carType;
     this.currentCar.pricePerDay = currentCar.pricePerDay;
     this.totalPrice = 0;
     this.currentCar.imgUrls = currentCar.imgUrls;
@@ -113,8 +114,9 @@ export class CarsComponent implements OnInit {
     this.reservationInfo.startDate = this.dateRange[0];
     this.reservationInfo.endDate = this.dateRange[1];
     this.reservationInfo.totalPrice = this.calculateTotalPrice(this.getNumberOfDays(this.reservationInfo.startDate, this.reservationInfo.endDate), this.currentCar);
-    this.reservationService.onReservationSelected(this.reservationInfo);
+    this.reservationService.onReservationSelected(this.reservationInfo);    
     this.modalRef.hide();
+    this.router.navigate(['payment']);
   }
 
   onRentCar() {
@@ -187,6 +189,7 @@ export class CarsComponent implements OnInit {
     car1.description = "Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.";
     car1.pricePerDay = 200;
     car1.year = 2018;
+    car1.carType = "Luxury Sedan";
     car1.imgUrls.push("../../assets/images/cars/mercedessclass.jpg");
 
     car2.brand = "Audi";
@@ -194,6 +197,7 @@ export class CarsComponent implements OnInit {
     car2.description = "Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.";
     car2.pricePerDay = 200;
     car2.year = 2018;
+    car2.carType = "Luxury sedan";
     car2.imgUrls.push("../../assets/images/cars/audia6.jpg");
     car2.imgUrls.push("../../assets/images/cars/audia62.jpg");
 
