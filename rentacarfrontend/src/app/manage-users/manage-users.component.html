@@ -1,0 +1,25 @@
+<div>
+<h1 style="color: rgb(241, 182, 182)">
+  Manage Users
+</h1>
+    <div class='table-responsive'>
+        <table class='table' *ngIf='users' >
+          <thead>
+            <tr style=" background-color: rgba(223, 143, 135, 0.76);">
+              <th class="text-center">Id</th>
+              <th class="text-center">Username</th>
+              <th class="text-center">Role</th>
+              <th class="text-center"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let user of users' style="color: rgb(241, 182, 182)">
+              <td class="text-center" >{{user.id}}</td>
+              <td class="text-center">{{user.username}}</td>
+              <td class="text-center">{{user.role}}</td>
+              <td class="text-center"><i (click)="deleteUser(user.id)" class = "fa fa-trash" style="color: rgb(245, 202, 202)"></i></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+</div>

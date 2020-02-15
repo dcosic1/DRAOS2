@@ -1,0 +1,11 @@
+.carousel-caption {
+  background: white;
+  color: black;
+  opacity: 0;
+}
+
+.jumbotron {
+  margin-bottom: 0px;
+  opacity: 0.6;
+  overflow: scroll;
+}

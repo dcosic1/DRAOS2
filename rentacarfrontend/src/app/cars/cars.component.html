@@ -1,0 +1,60 @@
+<div class="btn-group" dropdown>
+  <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+    aria-controls="dropdown-basic">
+    Sort By <span class="caret"></span>
+  </button>
+  <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+    <li role="menuitem"><a class="dropdown-item" (click)="sortByName()">Name</a></li>
+    <li role="menuitem"><a class="dropdown-item" (click)="sortByCarYear()">Car Year</a></li>
+    <li role="menuitem"><a class="dropdown-item" (click)="sortByPrice('asc')">Price(ASC)</a></li>
+    <li role="menuitem"><a class="dropdown-item" (click)="sortByPrice('desc')">Price(DESC)</a></li>
+    <li class="divider dropdown-divider"></li>
+    <li role="menuitem"><a class="dropdown-item" (click)="sortByPrice()">Separated link</a>
+    </li>
+  </ul>
+</div>
+<br>
+<div class="card" style="width: 18rem;" *ngFor="let car of cars">
+  <img src="{{car?.imgUrls[0]}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"> {{car.brand}} {{car.model}} </h5>
+    <p class="card-text"> {{car.description}} </p>
+    <div *ngIf='admin == "admin"'>
+    <i (click)="deleteCar(car.id)" class = "fa fa-trash" style="color: rgb(245, 202, 202)"></i>
+  </div>
+  <div *ngIf='admin != "admin"'>
+    <a class="btn btn-primary nav-link" (click)="openModal(modalCarDetails, car)">Details</a>
+  </div>
+  </div>
+</div>
+
+<ng-template #modalCarDetails>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left"> {{currentCar.brand }} {{currentCar.model}}</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <carousel id="carModalSlideShow">
+      <slide *ngFor="let image of currentCar.imgUrls">
+        <img [src]="image" style="display: block; width: 100%;">
+      </slide>
+    </carousel>
+    <hr>
+    <p> {{currentCar.description}} </p>
+    <p> Car year: {{currentCar.year}} </p>
+    <p> Price per day: {{currentCar.pricePerDay | currency}} </p>
+    Days for rent:
+    <input type="text" placeholder="Choose your dates" bsDaterangepicker [bsConfig]="dpConfig"
+      (bsValueChange)="onValueChange($event)" />
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" (click)="onCreateReservation()" routerLink="/booking" [disabled]="!dateValid">Create
+      reservation</button>
+    <button class="btn btn-primary" (click)="onRentCar()" routerLink="/booking" [disabled]="!dateValid">Rent this
+      car</button>
+  </div>
+</ng-template>
+
+{{message}}

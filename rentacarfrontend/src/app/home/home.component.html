@@ -1,0 +1,13 @@
+<carousel>
+  <slide *ngFor="let slide of slides">
+    <img [src]="slide.imgUrl" alt="car" style="display: block; width: 100%;">
+    <div class="carousel-caption d-none d-md-block">
+    </div>
+  </slide>
+</carousel>
+
+<div class="jumbotron">
+  <p class="lead">You need a car? We have the best offer for you!</p>
+  <p>We offer the best cars for your money. Fast, efficient and available online.</p>
+  <a class="btn btn-primary btn-lg" routerLink="/cars" role="button">See cars</a>
+</div>

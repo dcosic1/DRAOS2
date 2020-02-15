@@ -1,0 +1,13 @@
+.card {
+  display: inline-block;
+  margin: 2px;
+  border-color: white;
+}
+
+.card-body>a {
+  color: white;
+}
+
+input {
+  width: 50%;
+}
