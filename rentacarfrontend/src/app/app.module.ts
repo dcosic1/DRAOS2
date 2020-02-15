@@ -54,7 +54,7 @@ import { PaymentComponent } from './payment/payment.component';
     HttpClientModule,
     MatTabsModule,
     AngularWebStorageModule,
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
