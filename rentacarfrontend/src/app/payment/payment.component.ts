@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ReservationService } from '../shared/reservation.service';
+import { Reservation } from '../models/reservation';
 
 @Component({
   selector: 'app-payment',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaymentComponent implements OnInit {
 
-  constructor() { }
+  reservation = new Reservation();
+
+  price: number = 0;
+
+  message: string;
+
+  constructor(private service: ReservationService) {
+    
+  }
 
   ngOnInit() {
+    this.service.currentMessage.subscribe(message => this.reservation = message);
+    this.price = this.reservation.totalPrice;
   }
 
 }

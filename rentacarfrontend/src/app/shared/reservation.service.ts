@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { Activity } from '../models/activity';
 import { ActivityDetails } from '../models/activityDetails';
 import { Reservation } from '../models/reservation';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,15 +16,24 @@ export class ReservationService {
 
   @Output() reservationSelected: EventEmitter<Reservation> = new EventEmitter();
 
+  private messageSource = new BehaviorSubject(new Reservation());
+  currentMessage = this.messageSource.asObservable();
+
   constructor(private http: HttpClient, private storage: LocalStorageService) { }
 
   onReservationSelected(reservation: Reservation) {
     this.reservationSelected.emit(reservation);
     this.reservationInfo = reservation;
+
+    this.changeMessage(this.reservationInfo)
+  }
+
+  changeMessage(message: Reservation) {
+    this.messageSource.next(message)
   }
 
   createReservation() {
-    
+
     debugger;
     let activity = this.createNewActivity();
 

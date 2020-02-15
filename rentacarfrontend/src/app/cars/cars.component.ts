@@ -43,6 +43,7 @@ export class CarsComponent implements OnInit {
   public reservationInfo: Reservation;
   http: any;
 
+
   constructor(private localStorage: LocalStorageService, private modalService: BsModalService, private reservationService: ReservationService, private router: Router, private carService: CarService) { }
 
   ngOnInit() {
@@ -61,6 +62,9 @@ export class CarsComponent implements OnInit {
     // Passing data between components
     // this.reservationService.currentReservation.subscribe(reservationInfo => this.reservationInfo = reservationInfo)
     this.admin = this.localStorage.get("role");
+
+
+    this.reservationService.currentMessage.subscribe(message => this.reservationInfo = message);
   }
 
   openModal(modalCarDetails: TemplateRef<any>, currentCar: Car) {
@@ -114,21 +118,11 @@ export class CarsComponent implements OnInit {
     this.reservationInfo.startDate = this.dateRange[0];
     this.reservationInfo.endDate = this.dateRange[1];
     this.reservationInfo.totalPrice = this.calculateTotalPrice(this.getNumberOfDays(this.reservationInfo.startDate, this.reservationInfo.endDate), this.currentCar);
-    this.reservationService.onReservationSelected(this.reservationInfo);    
-    this.modalRef.hide();
-    this.router.navigate(['payment']);
-  }
-
-  onRentCar() {
-    this.reservationInfo.id = 0;
-    this.reservationInfo.car = this.currentCar;
-    this.reservationInfo.isRental = true;
-    this.reservationInfo.startDate = this.dateRange[0];
-    this.reservationInfo.endDate = this.dateRange[1];
-    var numberOfDays = this.getNumberOfDays(this.reservationInfo.startDate, this.reservationInfo.endDate);
-    this.reservationInfo.totalPrice = this.calculateTotalPrice(numberOfDays, this.reservationInfo.car);
     this.reservationService.onReservationSelected(this.reservationInfo);
     this.modalRef.hide();
+    this.router.navigate(['payment']);
+
+    this.reservationService.changeMessage(this.reservationInfo);
   }
 
   calculateTotalPrice(numberOfDays: number, car: Car) {
