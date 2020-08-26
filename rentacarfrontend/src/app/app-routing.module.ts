@@ -35,14 +35,14 @@ const routes: Routes = [
   {
     path: 'booking',
     component: BookingComponent,
-    canActivate: [AuthGuardGuard]
+    //canActivate: [AuthGuardGuard]
   },
   {
-    path: 'contact',
+    path: 'contact', 
     component: ContactComponent
   },
   {
-    path: 'login',
+    path: 'login', 
     component: LoginComponent,
     canActivate: [LoggedInGuard]
   },

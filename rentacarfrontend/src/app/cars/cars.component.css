@@ -8,6 +8,25 @@
   color: white;
 }
 
-input {
-  width: 50%;
+.style {
+  display: flex;
+  flex-wrap: wrap;       
+  padding: 0 5px;
+  justify-content: space-evenly;
+}
+.pagination {
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  border-radius: 0.37rem;
+  align-items: center;
+  margin-left: 600px;
+  
+}
+.sort {
+  margin-top: 20px;
+}
+
+.card-header:first-child {
+  margin: 20px 0;
 }

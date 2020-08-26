@@ -12,7 +12,7 @@ import { ImageInfo } from '../models/imageInfo';
 })
 export class CarService {
 
-  carDetailsUrl = 'http://localhost:8082/carDetails/all';
+  carDetailsUrl = '../../assets/cars.json';
   carImagesUrl = '../../assets/imageInfo.json';
 
   constructor(private http: HttpClient) { }

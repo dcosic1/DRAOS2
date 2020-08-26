@@ -2,11 +2,6 @@
   <tabset>
     <tab heading={{tabTitle}} id="tab1">
       <div *ngIf="reservationExists; else noReservation">
-        <carousel id="carModalSlideShow">
-          <slide *ngFor="let image of reservationInfo.car.imgUrls">
-            <img [src]="image" style="display: block; width: 100%;">
-          </slide>
-        </carousel>
         <hr>
         <div>
           <h3><b>Description:</b></h3>

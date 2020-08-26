@@ -22,7 +22,7 @@ export class ReservationService {
     this.reservationInfo = reservation;
   }
 
-  createReservation() {
+  F() {
     
     debugger;
     let activity = this.createNewActivity();
