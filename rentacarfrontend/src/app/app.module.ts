@@ -24,6 +24,7 @@ import { AngularWebStorageModule } from 'angular-web-storage';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { PaymentComponent } from './payment/payment.component';
+import { CarComponentComponent } from './cars/car-component/car-component.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { PaymentComponent } from './payment/payment.component';
     RegistrationComponent,
     LoginComponent,
     ManageUsersComponent,
-    PaymentComponent
+    PaymentComponent,
+    CarComponentComponent
   ],
   imports: [
     BrowserModule,
