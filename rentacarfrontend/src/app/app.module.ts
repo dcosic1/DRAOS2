@@ -56,7 +56,7 @@ import { CarComponentComponent } from './cars/car-component/car-component.compon
     HttpClientModule,
     MatTabsModule,
     AngularWebStorageModule,
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

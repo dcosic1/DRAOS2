@@ -4,8 +4,9 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-
+  <link rel="stylesheet" type="text/css" href="http://cdn.dcodes.net/2/payment_icons/dc_payment_icons.css" />
   <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/checkout/">
+
 
 
   <!-- Custom styles for this template -->
@@ -18,87 +19,88 @@
     <div class="row">
       <div class="col-md-8 order-md-1">
         <h4 class="mb-3">Billing address</h4>
-        <form class="needs-validation" novalidate>
+
+        <form [formGroup]="angForm" (ngSubmit)="onSubmit()">
           <div class="row">
             <div class="col-md-6 mb-3">
-              <label for="firstName">First name</label>
-              <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-              <div class="invalid-feedback">
-                Valid first name is required.
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" formControlName="firstName" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                  <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                </div>
               </div>
             </div>
             <div class="col-md-6 mb-3">
-              <label for="lastName">Last name</label>
-              <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-              <div class="invalid-feedback">
-                Valid last name is required.
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" formControlName="lastName" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                  <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="mb-3">
-            <label for="username">Username</label>
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">@</span>
-              </div>
-              <input type="text" class="form-control" id="username" placeholder="Username" required>
-              <div class="invalid-feedback" style="width: 100%;">
-                Your username is required.
+            <div class="form-group">
+              <label>Username</label>
+              <input type="text" formControlName="username" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+              <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                <div *ngIf="f.username.errors.required">Username is required</div>
               </div>
             </div>
           </div>
 
           <div class="mb-3">
-            <label for="email">Email <span class="text-muted">(Optional)</span></label>
-            <input type="email" class="form-control" id="email" placeholder="you@example.com">
-            <div class="invalid-feedback">
-              Please enter a valid email address for shipping updates.
+            <div class="form-group">
+              <label>Email</label>
+              <input type="text" formControlName="email" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Email is required</div>
+              </div>
             </div>
           </div>
 
           <div class="mb-3">
-            <label for="address">Address</label>
-            <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
-            <div class="invalid-feedback">
-              Please enter your shipping address.
+            <div class="form-group">
+              <label>Address</label>
+              <input type="text" formControlName="address" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.address.errors }" />
+              <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                <div *ngIf="f.address.errors.required">Address is required</div>
+              </div>
             </div>
-          </div>
-
-          <div class="mb-3">
-            <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-            <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
           </div>
 
           <div class="row">
             <div class="col-md-5 mb-3">
-              <label for="country">Country</label>
-              <select class="custom-select d-block w-100" id="country" required>
-                <option value="">Choose...</option>
-                <option>United States</option>
-              </select>
-              <div class="invalid-feedback">
-                Please select a valid country.
+              <div class="form-group">
+                <label>Country</label>
+                <input type="text" formControlName="country" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.country.errors }" />
+                <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+                  <div *ngIf="f.country.errors.required">Country is required</div>
+                </div>
               </div>
             </div>
-            <div class="col-md-4 mb-3">
-              <label for="state">State</label>
-              <select class="custom-select d-block w-100" id="state" required>
-                <option value="">Choose...</option>
-                <option>California</option>
-              </select>
-              <div class="invalid-feedback">
-                Please provide a valid state.
-              </div>
-            </div>
+
             <div class="col-md-3 mb-3">
-              <label for="zip">Zip</label>
-              <input type="text" class="form-control" id="zip" placeholder="" required>
-              <div class="invalid-feedback">
-                Zip code required.
+              <div class="form-group">
+                <label>Zip</label>
+                <input type="text" formControlName="zip" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.zip.errors }" />
+                <div *ngIf="submitted && f.zip.errors" class="invalid-feedback">
+                  <div *ngIf="f.zip.errors.required">Zip is required</div>
+                </div>
               </div>
             </div>
           </div>
+
           <hr class="mb-4">
           <div class="custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input" id="save-info">
@@ -107,6 +109,14 @@
           <hr class="mb-4">
 
           <h4 class="mb-3">Payment</h4>
+          <span class="dc_payment_icons_glossy_75 dc_visa_glossy" title="Visa"></span>
+          <span class="dc_payment_icons_glossy_75 dc_mastercard_glossy" title="Mastercard"></span>
+          <span class="dc_payment_icons_glossy_75 dc_americanexpress_glossy" title="American Express"></span>
+          <span class="dc_payment_icons_glossy_75 dc_discover_glossy" title="Discover"></span>
+          <span class="dc_payment_icons_glossy_75 dc_paypal_glossy" title="PayPal"></span>
+          <span class="dc_payment_icons_glossy_75 dc_maestro_glossy" title="Maestro"></span>
+          <span class="dc_payment_icons_glossy_75 dc_cirrus_glossy" title="Cirrus"></span>
+          <span class="dc_payment_icons_glossy_75 dc_visaelectron_glossy" title="Visa Electron"></span>
 
           <div class="d-block my-3">
             <div class="custom-control custom-radio">
@@ -124,41 +134,56 @@
           </div>
           <div class="row">
             <div class="col-md-6 mb-3">
-              <label for="cc-name">Name on card</label>
-              <input type="text" class="form-control" id="cc-name" placeholder="" required>
-              <small class="text-muted">Full name as displayed on card</small>
-              <div class="invalid-feedback">
-                Name on card is required
+              <div class="form-group">
+                <label>Credit Card Name</label>
+                <input type="text" formControlName="cardName" class="form-control" id="cardName"
+                  [ngClass]="{ 'is-invalid': submitted && f.cardName.errors }" />
+                <div *ngIf="submitted && f.cardName.errors" class="invalid-feedback">
+                  <div *ngIf="f.cardName.errors.required">Card Name is required</div>
+                </div>
               </div>
             </div>
             <div class="col-md-6 mb-3">
-              <label for="cc-number">Credit card number</label>
-              <input type="text" class="form-control" id="cc-number" placeholder="" required>
-              <div class="invalid-feedback">
-                Credit card number is required
+              <div class="form-group">
+                <label>Credit Card Number</label>
+                <input type="text" formControlName="ccNumber" class="form-control" id="ccNumber"
+                  [ngClass]="{ 'is-invalid': submitted && f.ccNumber.errors }" />
+                <div *ngIf="submitted && f.ccNumber.errors" class="invalid-feedback">
+                  <div *ngIf="f.ccNumber.errors.required">Credit Card Number is required</div>
+                </div>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-md-3 mb-3">
-              <label for="cc-expiration">Expiration</label>
-              <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-              <div class="invalid-feedback">
-                Expiration date required
+              <div class="form-group">
+                <label>CC Expiration Date</label>
+                <input type="text" formControlName="ccExpiration" class="form-control" id="ccExpiration"
+                  [ngClass]="{ 'is-invalid': submitted && f.ccExpiration.errors }" />
+                <div *ngIf="submitted && f.ccExpiration.errors" class="invalid-feedback">
+                  <div *ngIf="f.ccExpiration.errors.required">Credit Card Expiration is required</div>
+                </div>
               </div>
             </div>
             <div class="col-md-3 mb-3">
-              <label for="cc-expiration">CVV</label>
-              <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-              <div class="invalid-feedback">
-                Security code required
+              <div class="form-group">
+                <label>CCV</label>
+                <input type="text" formControlName="ccv" class="form-control" id="ccv"
+                  [ngClass]="{ 'is-invalid': submitted && f.ccv.errors }" />
+                <div *ngIf="submitted && f.ccv.errors" class="invalid-feedback">
+                  <div *ngIf="f.ccv.errors.required">CCV is required</div>
+                </div>
               </div>
             </div>
           </div>
           <hr class="mb-4">
-          <h4 class="mb-3">Total price for selected dates: </h4>
+          <h4 class="mb-3">Total price for selected dates: {{reservation.totalPrice | currency}}</h4>
           <hr class="mb-4">
-          <button class="btn btn-primary btn-lg btn-block" type="submit">Complete reservation</button>
+          <div class="form-group">
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Complete
+              reservation</button>
+          </div>
+
         </form>
       </div>
     </div>
@@ -178,27 +203,30 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
-
+  <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+  <script src="../../assets/js/vendor/popper.min.js"></script>
+  <script src="../../dist/js/bootstrap.min.js"></script>
+  <script src="../../assets/js/vendor/holder.min.js"></script>
   <script>
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
-    (function () {
-      'use strict';
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function () {
+        'use strict';
 
-      window.addEventListener('load', function () {
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        var forms = document.getElementsByClassName('needs-validation');
+        window.addEventListener('load', function () {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
 
-        // Loop over them and prevent submission
-        var validation = Array.prototype.filter.call(forms, function (form) {
-          form.addEventListener('submit', function (event) {
-            if (form.checkValidity() === false) {
-              event.preventDefault();
-              event.stopPropagation();
-            }
-            form.classList.add('was-validated');
-          }, false);
-        });
-      }, false);
-    })();
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function (form) {
+            form.addEventListener('submit', function (event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
   </script>
 </body>
