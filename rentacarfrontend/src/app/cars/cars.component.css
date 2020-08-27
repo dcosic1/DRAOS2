@@ -7,6 +7,9 @@
 .card-body>a {
   color: white;
 }
+.card-body {
+  padding: 0 1.25px;
+}
 
 .style {
   display: flex;
@@ -21,7 +24,7 @@
   border-radius: 0.37rem;
   align-items: center;
   margin-left: 600px;
-  
+  margin-right: 600px;
 }
 .sort {
   margin-top: 20px;

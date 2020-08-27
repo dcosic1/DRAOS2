@@ -25,6 +25,7 @@ import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { PaymentComponent } from './payment/payment.component';
 import { CarComponentComponent } from './cars/car-component/car-component.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { CarComponentComponent } from './cars/car-component/car-component.compon
     MatTabsModule,
     AngularWebStorageModule,
     BsDropdownModule.forRoot(),
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
