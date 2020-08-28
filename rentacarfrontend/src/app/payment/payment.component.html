@@ -7,8 +7,6 @@
   <link rel="stylesheet" type="text/css" href="http://cdn.dcodes.net/2/payment_icons/dc_payment_icons.css" />
   <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/checkout/">
 
-
-
   <!-- Custom styles for this template -->
   <link rel="payment.component.css" rel="stylesheet">
 </head>
@@ -195,6 +193,129 @@
         <li class="list-inline-item"><a href="#">Support</a></li>
       </ul>
     </footer>
+  </div>
+
+  <div id="receipt" #receipt style="display: none;">
+    <style type="text/css">
+      .tg {
+        border-collapse: collapse;
+        border-color: #9ABAD9;
+        border-spacing: 0;
+      }
+
+      .tg td {
+        background-color: #EBF5FF;
+        border-color: #9ABAD9;
+        border-style: solid;
+        border-width: 1px;
+        color: #444;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        overflow: hidden;
+        padding: 10px 5px;
+        word-break: normal;
+      }
+
+      .tg th {
+        background-color: #409cff;
+        border-color: #9ABAD9;
+        border-style: solid;
+        border-width: 1px;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        overflow: hidden;
+        padding: 10px 5px;
+        word-break: normal;
+      }
+
+      .tg .tg-fymr {
+        border-color: inherit;
+        font-weight: bold;
+        text-align: left;
+        vertical-align: top
+      }
+
+      .tg .tg-jbzf {
+        background-color: #3531ff;
+        border-color: inherit;
+        color: #ffffff;
+        text-align: left;
+        vertical-align: top
+      }
+
+      .tg .tg-0pky {
+        border-color: inherit;
+        text-align: left;
+        vertical-align: top
+      }
+    </style>
+    <table class="tg">
+      <thead>
+        <tr>
+          <th class="tg-fymr" colspan="2">CAR RENTAL CONFIRMATION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tg-jbzf" colspan="2">Company information</td>
+        </tr>
+        <tr>
+          <td class="tg-0pky">Company Name</td>
+          <td class="tg-0pky">DRAOS</td>
+        </tr>
+        <tr>
+          <td class="tg-0pky">Agent</td>
+          <td class="tg-0pky">John Doe</td>
+        </tr>
+        <tr>
+          <td class="tg-0pky">Reservation status</td>
+          <td class="tg-0pky">Approved</td>
+        </tr>
+        <tr>
+          <td class="tg-jbzf" colspan="2">Customer information</td>
+        </tr>
+        <tr>
+          <td class="tg-0pky">First Name</td>
+          <td class="tg-0pky">first_name</td>
+        </tr>
+        <tr>
+          <td class="tg-0pky">Last Name</td>
+          <td class="tg-0pky">last_name</td>
+        </tr>
+        <tr>
+          <td class="tg-0pky">Date of reservation</td>
+          <td class="tg-0pky">date</td>
+        </tr>
+        <tr>
+          <td class="tg-0pky">Address</td>
+          <td class="tg-0pky">address</td>
+        </tr>
+        <tr>
+          <td class="tg-0pky">Country</td>
+          <td class="tg-0pky">country</td>
+        </tr>
+        <tr>
+          <td class="tg-0pky">Zip</td>
+          <td class="tg-0pky">Number of users who gave a review</td>
+        </tr>
+        <tr>
+          <td class="tg-0pky">Payment type</td>
+          <td class="tg-0pky">Number of critical reviews on imdb</td>
+        </tr>
+        <tr>
+          <td class="tg-0pky" colspan="2"></td>
+        </tr>
+        <tr>
+          <td class="tg-0pky" colspan="2"></td>
+        </tr>
+        <tr>
+          <td class="tg-0pky">Amount</td>
+          <td class="tg-0pky">price</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
   <!-- Bootstrap core JavaScript

@@ -5,7 +5,8 @@ import swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { format } from 'url';
 import { Form, FormGroup, FormBuilder, Validators } from '@angular/forms';
-
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
 
 
 @Component({
@@ -58,6 +59,21 @@ export class PaymentComponent implements OnInit {
         title: "Success",
         text: "Reservation placed"
       }).then(() => { this.router.navigate(["home"]) });
+
+      this.generatePdf();
     }
+  }
+
+  generatePdf() {
+    var data = document.getElementById('receipt');
+    html2canvas(data).then(canvas => {
+      var imgWidth = 208;
+      var imgHeight = canvas.height * imgWidth / canvas.width;
+      const contentDataURL = canvas.toDataURL('../../assets/receipts/image.png')
+      let pdf = new jsPDF('p', 'mm', 'a4');
+      var position = 0;
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
+      pdf.save('newPDF.pdf');
+    });
   }
 }
