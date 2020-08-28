@@ -30,7 +30,7 @@
     <p> Price: {{car.pricePerDay | currency}} </p>
     Days for rent:
     <input type="text" placeholder="Choose your dates" bsDaterangepicker [bsConfig]="dpConfig"
-      (bsValueChange)="onValueChange($event)" />
+      (bsValueChange)="onValueChange($event)" class="datePickerOnDetails"/>
   </div>
   <div class="modal-footer">
     <button class="btn btn-primary" (click)="onCreateReservation()" [disabled]="!dateValid">Rent

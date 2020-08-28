@@ -22,55 +22,61 @@
      {
         "carId": 3,
         "brand":"Mercedes",
-        "model":"S Class",
+        "model":"E Class",
         "description":"Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.",
         "pricePerDay":200,
         "year":2018,
-        "carType":"Luxury Sedan"
+        "carType":"Luxury Sedan",
+        "imageUrl": "assets/images/cars/mercedese.webp"
      },
      {
         "carId": 4,
-        "brand":"Mercedes",
-        "model":"S Class",
+        "brand":"Volkswagen",
+        "model":"Passat",
         "description":"Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.",
         "pricePerDay":200,
         "year":2018,
-        "carType":"Luxury Sedan"
+        "carType":"Luxury Sedan",
+        "imageUrl":"assets/images/cars/passat.jpg"
      },
      {
       "carId": 5,
-        "brand":"Mercedes",
-        "model":"S Class",
+        "brand":"Volkswagen",
+        "model":"Golf 7",
         "description":"Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.",
         "pricePerDay":200,
         "year":2018,
-        "carType":"Luxury Sedan"
+        "carType":"Luxury Sedan",
+        "imageUrl":"assets/images/cars/golf7.jpg"
      },
      {
       "carId": 6,
-        "brand":"Mercedes",
-        "model":"S Class",
+        "brand":"BMW",
+        "model":"7",
         "description":"Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.",
         "pricePerDay":200,
         "year":2018,
-        "carType":"Luxury Sedan"
+        "carType":"Luxury Sedan",
+        "imageUrl":"assets/images/cars/bmw7.jpg"
      },
      {
       "carId": 7,
-        "brand":"Mercedes",
-        "model":"S Class",
+        "brand":"BMW",
+        "model":"5",
         "description":"Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.",
         "pricePerDay":200,
         "year":2018,
-        "carType":"Luxury Sedan"
+        "carType":"Luxury Sedan",
+        "imageUrl":"assets/images/cars/bmw5.jpg"
      },
      {
       "carId": 8,
-        "brand":"Mercedes",
-        "model":"S Class",
+        "brand":"Lexus",
+        "model":"LS",
         "description":"Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.",
         "pricePerDay":200,
         "year":2018,
-        "carType":"Luxury Sedan"
+        "carType":"Luxury Sedan",
+        "imageUrl":"assets/images/cars/lexusls.jpg"
      }
 ]
