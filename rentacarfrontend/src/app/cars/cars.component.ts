@@ -33,7 +33,7 @@ export class CarsComponent implements OnInit {
       cars => {
         this.cars = cars;
         this.route.queryParams.subscribe(q=> {
-          if(q){ 
+          if(q['startDate'] ){ 
            cars.forEach(c => {
            if(c.reserved ) {
              if(c.reserved.find(reserved => 

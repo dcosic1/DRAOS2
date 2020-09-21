@@ -44,7 +44,7 @@ export class PaymentComponent implements OnInit {
       ccExpiration: ['', Validators.required],
       ccv: ['', Validators.required],
     });
-    //this.angForm.controls["ccNumber"].setValidators([Validators.minLength(16), Validators.maxLength(16)]);
+    this.angForm.controls["ccNumber"].setValidators([Validators.minLength(16), Validators.maxLength(16)]);
   }
 
   get f() { return this.angForm.controls; }
