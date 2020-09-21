@@ -1,4 +1,4 @@
-<section class="banner-area relative" id="home">
+<section class="banner-area relative" id="home" backgroun-color='e9ecef'>
   <div class="overlay overlay-bg"></div>
   <div class="container">
   <div class="row fullscreen d-flex align-items-center justify-content-center" style="height: 645px;">
@@ -14,31 +14,38 @@
   </div>
   <div class="col-lg-5  col-md-6 header-right">
   <h4 class="text-white pb-30">Book Your Car Today!</h4>
-  <form class="form" role="form" autocomplete="off">
+  <form [formGroup]="angForm" class="form" role="form" autocomplete="off">
+    <label class="text-white">Select star and end date</label>
+    <div class="form-group row">
+    <div class="col-md-12">
+    <div class="input-group dates-wrap">
+    <input formControlName='dateForm' id="datepicker" class="dates form-control hasDatepicker" bsDaterangepicker bsDaterangepicker [bsConfig]="dpConfig"
+        (bsValueChange)="onValueChange($event)" placeholder="Date &amp; time" type="text">
+    </div>
+    </div>
+    </div>
+  <label class="text-white">Select your car brand</label>
   <div class="form-group">
   <div class="default-select" id="default-select" >
-  <select class="nice-select">
-  <option value="" disabled="" selected="" hidden="">Select Your Car Type</option>
-  <option value="1">BMW</option>
-  <option value="1">Farrari</option>
-  <option value="1">Toyota</option>
+  <select formControlName='brandForm' class="nice-select" [(ngModel)] ='filterCriteria.brand' value='{{carsBrand[0]}}'>
+  <option value="{{brand}}" *ngFor='let brand of carsBrand' >{{brand}}</option>
   </select>
   </div>
   </div>
+  
+  <label class="text-white">Select your car type</label>
+  <div class="form-group">
+    <div class="default-select" id="default-select" >
+    <select formControlName='typeForm' class="nice-select" [(ngModel)] ='filterCriteria.type' value='{{carsType[0]}}'>
+    <option value="{{type}}" *ngFor='let type of carsType' >{{type}}</option>
+    </select>
+    </div>
+    </div>
+    
+
   <div class="form-group row">
   <div class="col-md-12">
-  <div class="input-group dates-wrap">
-  <input id="datepicker" class="dates form-control hasDatepicker" bsDaterangepicker bsDaterangepicker [bsConfig]="dpConfig"
-      (bsValueChange)="onValueChange($event)" placeholder="Date &amp; time" type="text">
-  </div>
-  </div>
-  </div>
-  <div class="from-group">
-  <input class="form-control txt-field" type="text" name="name" placeholder="City">
-  </div>
-  <div class="form-group row">
-  <div class="col-md-12">
-  <button type="reset" class="btn btn-primary btn-lg btn-block text-center text-uppercase">Search for Cars</button>
+  <button [disabled]='!this.angForm.valid' type="reset" class="btn btn-primary btn-lg btn-block text-center text-uppercase"(click)="searchForCars()">Search for Cars</button>
   </div>
   </div>
   </form>

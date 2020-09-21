@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BsDatepickerConfig } from 'ngx-bootstrap';
+import { Router } from '@angular/router';
+import { FilterCriteria } from '../models/filter-criteria.model';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -12,8 +15,12 @@ export class HomeComponent implements OnInit {
   dateRange: any[] = [];
   dateValid = false;
   dpConfig: Partial<BsDatepickerConfig> = new BsDatepickerConfig();
+  filterCriteria: FilterCriteria = new FilterCriteria();
+  carsBrand = ['All brands', 'Mercedes', 'Audi', 'Toyota', 'Volkswagen', 'Hyundai'];
+  carsType = ['All types','Coupe', 'Sedan', 'SUV', 'Cabriolet', 'Minivan'];
+  angForm: FormGroup;
+  constructor(private router: Router, private fb: FormBuilder) { }
 
-  constructor() { }
 
   ngOnInit() {
     this.dpConfig.containerClass = 'theme-dark-blue';
@@ -42,6 +49,18 @@ export class HomeComponent implements OnInit {
         "imgUrl": "../../assets/images/cars/volvoxc40.jpg"
       }
     ];
+
+      this.angForm = this.fb.group({
+        dateForm: ['', Validators.required],
+        brandForm: new FormControl(''),
+        typeForm: new FormControl('')
+      });
+      
+    this.angForm.controls.brandForm.setValue(this.carsBrand[0]);
+    this.angForm.controls.typeForm.setValue(this.carsType[0]);
+    this.filterCriteria.type = this.carsType[0];
+    this.filterCriteria.brand = this.carsBrand[0];
+
   }
   
   onValueChange(event: any) {
@@ -53,6 +72,11 @@ export class HomeComponent implements OnInit {
     }
     this.dateValid = false;
     console.log("CHANGE HAPPENED: " + event + " *** Date range: " + this.dateRange + " Date is valid: " + this.dateValid);
+  }
+
+  searchForCars() {
+    console.log(this.dateRange);
+    this.router.navigate(['/cars'], { queryParams: { startDate: this.dateRange[0].toISOString(), endDate: this.dateRange[1].toISOString(), type: this.filterCriteria.type, brand: this.filterCriteria.brand}});
   }
 
 }

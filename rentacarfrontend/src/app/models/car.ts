@@ -1,5 +1,5 @@
 export class Car {
-  id: number;
+  carId: number;
   brand: string;
   model: string;
   year: number;
@@ -9,7 +9,5 @@ export class Car {
   imgUrl?: string;
   pricePerDay: number;
   isAvailable: boolean;
-
+  reserved?: [Date,Date][];
 }
-
-// May update model if needed

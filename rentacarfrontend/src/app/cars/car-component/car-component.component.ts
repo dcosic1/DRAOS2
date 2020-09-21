@@ -19,7 +19,7 @@ export class CarComponentComponent implements OnInit {
   dateRange: any[] = [];
   dateValid = false;
   totalPrice: number;
-  
+  disabledDates: Date[] = [];
   reservationInfo: Reservation;
 
   ngOnInit() {
@@ -29,6 +29,17 @@ export class CarComponentComponent implements OnInit {
     this.dpConfig.minDate= new Date();
     this.dpConfig.showWeekNumbers = false;
     this.reservationInfo = new Reservation();
+    if(this.car.reserved) {
+      this.car.reserved.forEach(element => {
+        const startDate = new Date(element[0]);
+        const endDate = new Date(element[1]);
+        while(startDate <= endDate) {
+          this.disabledDates.push(new Date(startDate));
+          startDate.setDate(startDate.getDate()+1);
+        }
+      });
+      this.dpConfig.datesDisabled = this.disabledDates;
+    }
   }
   openModal(modalCarDetails: TemplateRef<any>) {
     this.modalRef = this.modalService.show(modalCarDetails);

@@ -1,5 +1,5 @@
 .carousel-caption {
-  background: white;
+  background: gray;
   color: black;
   opacity: 0;
 }
@@ -2281,6 +2281,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 .banner-area {
  background: url(../../assets/images/cars/audia6.jpg) center;
   background-size: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .banner-area .overlay-bg {
@@ -2314,11 +2316,6 @@ body.mobile-nav-active #mobile-nav-toggle {
   }
 }
 
-@media (max-width: 991.98px) {
-  .banner-content h1 br {
-    display: none;
-  }
-}
 
 @media (max-width: 1199.98px) {
   .banner-content h1 {
@@ -2339,16 +2336,9 @@ body.mobile-nav-active #mobile-nav-toggle {
   letter-spacing: 2px;
 }
 
-@media (max-width: 1280px) {
-  .banner-content br {
-    display: none;
-  }
-}
 
 @media (max-width: 763px) {
-  .banner-content h6, .banner-content p, .banner-content a {
-    display: none;
-  }
+
   .banner-content h1 {
     text-align: center;
     padding-top: 50px;

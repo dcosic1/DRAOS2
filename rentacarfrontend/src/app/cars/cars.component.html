@@ -15,9 +15,9 @@
               <div class="card-body">
                 <form class="pb-3">
                   <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search" [(ngModel)] = "filterCriteria.searchCriteria" name="search">
+                    <input type="text" class="form-control" placeholder="Search" [(ngModel)] = "filterCriteria.searchCriteria" name="search" (change)="onSearch()">
                     <div class="input-group-append">
-                      <button class="btn btn-light" type="button"><i class="fa fa-search" (click) = "onSearhc()"></i></button>
+                      <button class="btn btn-light" type="button"><i class="fa fa-search" (click) = "onSearch()"></i></button>
                     </div>
                   </div>
                 </form>
@@ -30,11 +30,11 @@
                 <h6 class="title">Brands </h6>
               </a>
             </header>
-            <div class="filter-content collapse show" id="collapse_2" style="" *ngFor="let type of carsType">
+            <div class="filter-content collapse show" id="collapse_2" style="" *ngFor="let brand of carsBrand">
               <div class="card-body">
                 <label class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" (change)="onCarTypeChange($event)" id="{{type}}">
-                  <div class="custom-control-label">{{type}}
+                  <input type="checkbox" class="custom-control-input" (change)="onCarBrandChange($event)" id="{{brand}}">
+                  <div class="custom-control-label">{{brand}}
                   </div>
                 </label>
               </div> <!-- card-body.// -->
@@ -42,61 +42,39 @@
           </article> <!-- filter-group .// -->
           <article class="filter-group">
             <header class="card-header">
+              <a href="#" data-toggle="collapse" data-target="#collapse_5" aria-expanded="true"  class="">
+                <h6 class="title">Car type </h6>
+              </a>
+            </header>
+            <div class="filter-content" id="collapse_5" style="" *ngFor = "let type of carsType">
+              <div class="card-body">
+                <label class="custom-control custom-radio">
+                  <input type="radio" name="myfilter_radio" class="custom-control-input" (change)="onCarTypeChange($event)" id="{{type}}">
+                  <div class="custom-control-label">{{type}}</div>
+                </label>
+              </div><!-- card-body.// -->
+            </div>
+          </article> <!-- filter-group .// -->
+          
+          <article class="filter-group">
+            <header class="card-header">
               <a href="#" data-toggle="collapse" data-target="#collapse_3" aria-expanded="true" class="">
-                <h6 class="title">Price range </h6>
+                <h6 class="title">Price range per day</h6>
               </a>
             </header>
             <div class="filter-content collapse show" id="collapse_3" style="">
               <div class="card-body">
-                <input type="range" class="custom-range" min="0" max="400" name="" [(ngModel)] = "filterCriteria.slider" (change)="onSliderChange()">
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label>Min</label>
-                    <input class="form-control" placeholder="$0" type="number">
+                    <input class="form-control" placeholder="$0" type="number" [(ngModel)] = "filterCriteria.minPrice">
                   </div>
                   <div class="form-group text-right col-md-6">
                     <label>Max</label>
-                    <input class="form-control" placeholder="$400" type="number" value= "{{filterCriteria.slider}}" [(ngModel)] = "filterCriteria.slider" (change)="onSliderChange()" >
+                    <input class="form-control" placeholder="$400" type="number" [(ngModel)] = "filterCriteria.maxPrice" (change)="onSliderChange()" >
                   </div>
                 </div> <!-- form-row.// -->
-                <button class="btn btn-block btn-primary">Apply</button>
-              </div><!-- card-body.// -->
-            </div>
-          </article> <!-- filter-group .// -->
-          <article class="filter-group">
-            <header class="card-header">
-              <a href="#" data-toggle="collapse" data-target="#collapse_4" aria-expanded="true" class="">
-                <h6 class="title">Sizes </h6>
-              </a>
-            </header>
-          </article> <!-- filter-group .// -->
-          <article class="filter-group">
-            <header class="card-header">
-              <a data-toggle="collapse" aria-expanded="false" class="">
-                <h6 class="title">More filter </h6>
-              </a>
-            </header>
-            <div class="filter-content" id="collapse_5" style="">
-              <div class="card-body">
-                <label class="custom-control custom-radio">
-                  <input type="radio" name="myfilter_radio" checked="" class="custom-control-input">
-                  <div class="custom-control-label">Any condition</div>
-                </label>
-
-                <label class="custom-control custom-radio">
-                  <input type="radio" name="myfilter_radio" class="custom-control-input">
-                  <div class="custom-control-label">Brand new </div>
-                </label>
-
-                <label class="custom-control custom-radio">
-                  <input type="radio" name="myfilter_radio" class="custom-control-input">
-                  <div class="custom-control-label">Used items</div>
-                </label>
-
-                <label class="custom-control custom-radio">
-                  <input type="radio" name="myfilter_radio" class="custom-control-input">
-                  <div class="custom-control-label">Very old</div>
-                </label>
+                <button class="btn btn-block btn-primary" (click) = "filterByPrice()">Apply</button>
               </div><!-- card-body.// -->
             </div>
           </article> <!-- filter-group .// -->

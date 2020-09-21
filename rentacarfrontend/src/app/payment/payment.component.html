@@ -18,7 +18,7 @@
       <div class="col-md-8 order-md-1">
         <h4 class="mb-3">Billing address</h4>
 
-        <form [formGroup]="angForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="angForm" (ngSubmit)="onSubmit()" id="receipt" #receipt>
           <div class="row">
             <div class="col-md-6 mb-3">
               <div class="form-group">
@@ -195,63 +195,8 @@
     </footer>
   </div>
 
-  <div id="receipt" #receipt style="display: none;">
-    <style type="text/css">
-      .tg {
-        border-collapse: collapse;
-        border-color: #9ABAD9;
-        border-spacing: 0;
-      }
-
-      .tg td {
-        background-color: #EBF5FF;
-        border-color: #9ABAD9;
-        border-style: solid;
-        border-width: 1px;
-        color: #444;
-        font-family: Arial, sans-serif;
-        font-size: 14px;
-        overflow: hidden;
-        padding: 10px 5px;
-        word-break: normal;
-      }
-
-      .tg th {
-        background-color: #409cff;
-        border-color: #9ABAD9;
-        border-style: solid;
-        border-width: 1px;
-        color: #fff;
-        font-family: Arial, sans-serif;
-        font-size: 14px;
-        font-weight: normal;
-        overflow: hidden;
-        padding: 10px 5px;
-        word-break: normal;
-      }
-
-      .tg .tg-fymr {
-        border-color: inherit;
-        font-weight: bold;
-        text-align: left;
-        vertical-align: top
-      }
-
-      .tg .tg-jbzf {
-        background-color: #3531ff;
-        border-color: inherit;
-        color: #ffffff;
-        text-align: left;
-        vertical-align: top
-      }
-
-      .tg .tg-0pky {
-        border-color: inherit;
-        text-align: left;
-        vertical-align: top
-      }
-    </style>
-    <table class="tg">
+  <div  style="display: none;">
+    <table class="tg" width="100%"  >
       <thead>
         <tr>
           <th class="tg-fymr" colspan="2">CAR RENTAL CONFIRMATION</th>

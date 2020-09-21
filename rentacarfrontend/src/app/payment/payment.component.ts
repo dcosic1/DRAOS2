@@ -7,6 +7,9 @@ import { format } from 'url';
 import { Form, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
+import { timer } from 'rxjs';
+import { CarService } from '../shared/car.service';
+import { resolveReflectiveProviders } from '@angular/core/src/di/reflective_provider';
 
 
 @Component({
@@ -23,7 +26,7 @@ export class PaymentComponent implements OnInit {
   submitted = false;
 
 
-  constructor(private service: ReservationService, private router: Router, private fb: FormBuilder) {
+  constructor(private service: ReservationService, private router: Router, private fb: FormBuilder,private carService: CarService) {
     this.createForm();
   }
 
@@ -61,19 +64,39 @@ export class PaymentComponent implements OnInit {
       }).then(() => { this.router.navigate(["home"]) });
 
       this.generatePdf();
+
+      this.carService.getCars().subscribe(
+        cars => {
+          cars.map( c => c.carId === this.reservation.car.carId ? {
+            ...c,
+           reserved: c.reserved.push([this.reservation.startDate, this.reservation.endDate])
+          }: c)
+          
+    console.log(cars)
+        }
+        );
+        
     }
   }
 
-  generatePdf() {
-    var data = document.getElementById('receipt');
-    html2canvas(data).then(canvas => {
-      var imgWidth = 208;
-      var imgHeight = canvas.height * imgWidth / canvas.width;
-      const contentDataURL = canvas.toDataURL('../../assets/receipts/image.png')
-      let pdf = new jsPDF('p', 'mm', 'a4');
-      var position = 0;
-      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
-      pdf.save('newPDF.pdf');
-    });
+   generatePdf() {
+    var element = document.createElement('element');
+    element.innerText ='20';
+
+html2canvas(element).then((canvas) => {
+    let imgData = canvas.toDataURL('image/png');
+
+    let imgWidth = 208,
+        
+        imgHeight = canvas.height * imgWidth / canvas.width,
+        pageHeight = imgHeight,
+        heightLeft = imgHeight,
+        doc = new jsPDF('l', 'mm', 'a4'),
+        position = 0;
+
+    doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+
+    doc.save( 'newpdf'+'.pdf');
+});
   }
 }

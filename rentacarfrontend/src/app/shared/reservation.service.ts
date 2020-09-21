@@ -68,7 +68,7 @@ export class ReservationService {
     let activity = new Activity();
     // Fix this!
     activity.userId = 8888;
-    activity.carId = this.reservationInfo.car.id;
+    activity.carId = this.reservationInfo.car.carId;
     activity.isRental = this.reservationInfo.isRental ? 1 : 0;
     activity.isReservation = !this.reservationInfo.isRental ? 1 : 0;
     return activity;

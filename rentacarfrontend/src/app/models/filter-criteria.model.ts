@@ -1,4 +1,7 @@
 export class FilterCriteria {
     searchCriteria: string;
-    slider: number;
+    minPrice: number;
+    maxPrice: number;
+    brand: string
+    type: string
 }
