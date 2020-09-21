@@ -37,8 +37,8 @@ export class CarsComponent implements OnInit {
            cars.forEach(c => {
            if(c.reserved ) {
              if(c.reserved.find(reserved => 
-              q['startDate'].getMonth() > reserved[0].getMonth() && q['endDate'].getMonth() > reserved[1].getMonth() || 
-              q['startDate'].getMonth() < reserved[0].getMonth() && q['endDate'].getMonth() < reserved[1].getMonth() 
+             q['startDate'] > reserved[0] && q['endDate'] > reserved[1] || 
+             q['startDate'] < reserved[0] && q['endDate'] < reserved[1] 
              )){
               this.carsList.push(c);
              }
