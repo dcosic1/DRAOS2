@@ -19,6 +19,7 @@ export class AdminGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
       
+      //Pnext.queryParams['']
       if(this.localStorage.get("role")=="admin"){
         return true;
       }else{

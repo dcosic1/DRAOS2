@@ -1,3 +1,11 @@
 .datePickerOnDetails {
     width: 190px
 }
+.price{
+    color: black;
+    font-weight: bold;
+}
+.text{
+    color: #007bff;
+    font-weight: bold;
+}

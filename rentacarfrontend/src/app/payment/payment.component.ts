@@ -35,16 +35,14 @@ export class PaymentComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       address: ['', Validators.required],
-      username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       country: ['', Validators.required],
       zip: ['', Validators.required],
       cardName: ['', Validators.required],
-      ccNumber: ['', Validators.required],
+      ccNumber: ['',Validators.required],
       ccExpiration: ['', Validators.required],
       ccv: ['', Validators.required],
     });
-    this.angForm.controls["ccNumber"].setValidators([Validators.minLength(16), Validators.maxLength(16)]);
   }
 
   get f() { return this.angForm.controls; }
@@ -57,14 +55,14 @@ export class PaymentComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
 
-    if (this.angForm.valid) {
+    if (this.angForm.valid && this.reservation) {
       swal.fire({
         icon: "success",
         title: "Success",
-        text: "Reservation placed"
+        text: "Reservation is created successfully! You will get an email with all the necessary details. Thank you."
       }).then(() => { this.router.navigate(["home"]) });
 
-      this.generatePdf();
+     // this.generatePdf();
 
       this.carService.getCars().subscribe(
         cars => {

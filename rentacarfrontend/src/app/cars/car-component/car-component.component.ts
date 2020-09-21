@@ -14,6 +14,8 @@ export class CarComponentComponent implements OnInit {
 
   constructor(private modalService: BsModalService, private reservationService: ReservationService, private router: Router) { }
   @Input() car: Car;
+  @Input() startDate?: Date;
+  @Input() endDate?: Date;
   modalRef: BsModalRef;
   dpConfig: Partial<BsDatepickerConfig> = new BsDatepickerConfig();
   dateRange: any[] = [];
@@ -43,6 +45,9 @@ export class CarComponentComponent implements OnInit {
   }
   openModal(modalCarDetails: TemplateRef<any>) {
     this.modalRef = this.modalService.show(modalCarDetails);
+    if(this.startDate && this.endDate){
+      this.dpConfig.value = [this.startDate, this.endDate];
+    }
     console.log(this.car);
   }
   onValueChange(event: any) {

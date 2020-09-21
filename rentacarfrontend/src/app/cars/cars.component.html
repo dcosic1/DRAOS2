@@ -67,14 +67,14 @@
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label>Min</label>
-                    <input class="form-control" placeholder="$0" type="number" [(ngModel)] = "filterCriteria.minPrice">
+                    <input (change) = "filterByPrice()" class="form-control" placeholder="$0" type="number" [(ngModel)] = "filterCriteria.minPrice">
                   </div>
                   <div class="form-group text-right col-md-6">
                     <label>Max</label>
-                    <input class="form-control" placeholder="$400" type="number" [(ngModel)] = "filterCriteria.maxPrice" (change)="onSliderChange()" >
+                    <input (change) = "filterByPrice()" class="form-control" placeholder="$400" type="number" [(ngModel)] = "filterCriteria.maxPrice" (change)="onSliderChange()" >
                   </div>
                 </div> <!-- form-row.// -->
-                <button class="btn btn-block btn-primary" (click) = "filterByPrice()">Apply</button>
+                <button class="btn btn-block btn-primary" [disabled]="!filterCriteria.maxPrice && !filterCriteria.minPrice" (click) = "filterByPrice()">Apply</button>
               </div><!-- card-body.// -->
             </div>
           </article> <!-- filter-group .// -->
@@ -105,7 +105,7 @@
 
         <div class="style" *ngFor="let car of carsList | paginate: paginationConfig">
           <div class="style">
-            <app-car-component [car]='car'></app-car-component>
+            <app-car-component [car]='car'[startDate]="queryParams['startDate']" [endDate]="queryParams['endDate']"></app-car-component>
           </div> <!-- row.// -->
         </div>
       </main> <!-- col.// -->

@@ -1,13 +1,18 @@
 
-  <div class="row">
+  <div class="row" style="margin-bottom: 8px;">
     <div class="col-lg-5" >
       <img src="{{car.imageUrl}}" class="card-img-top" alt="...">
     </div>
     <div class="card-body col-lg-7">
-      <h5 class="card-title"> {{car.brand}} {{car.model}} </h5>
+      <h5 class="card-title text"> {{car.brand}} {{car.model}} </h5>
       <p class="card-text"> {{car.description}} </p>
-      <div>
-        <a class="btn btn-primary nav-link" (click)="openModal(modalCarDetails)">Details</a>
+      <hr width="100%">
+      <div class="row" style="padding: 0 1rem;">
+    
+        <label class="col-lg-6 price" >Price per day: {{car.pricePerDay | currency}} </label>
+        <button id="button-basic" type="button" class="btn btn-primary col-lg-6" (click)="openModal(modalCarDetails)">
+          Details 
+      </button>
       </div>
     </div>
   </div>
@@ -23,14 +28,14 @@
         <img [src]="car?.imageUrl" style="display: block; width: 100%;">
     <hr>
     <p> {{car.description}} </p>
-    <p> Year: {{car.year}} </p>
-    <p> Brand: {{car.brand}} </p>
-    <p> Model: {{car.model}} </p>
-    <p> Type: {{car.carType}} </p>
-    <p> Price: {{car.pricePerDay | currency}} </p>
-    Days for rent:
+    <p > <b>Year: </b> {{car.year}} </p>
+    <p> <b>Brand: </b> {{car.brand}} </p>
+    <p> <b>Model: </b> {{car.model}} </p>
+    <p> <b>Type: </b> {{car.carType}} </p>
+    <p> <b>Price: </b> {{car.pricePerDay | currency}} </p>
+    <b>Days for rent: </b>
     <input type="text" placeholder="Choose your dates" bsDaterangepicker [bsConfig]="dpConfig"
-      (bsValueChange)="onValueChange($event)" class="datePickerOnDetails"/>
+      (bsValueChange)="onValueChange($event)" class="datePickerOnDetails" value="dpConfig.value"/>
   </div>
   <div class="modal-footer">
     <button class="btn btn-primary" (click)="onCreateReservation()" [disabled]="!dateValid">Rent
