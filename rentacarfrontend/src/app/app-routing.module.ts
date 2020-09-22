@@ -4,11 +4,9 @@ import { BookingComponent } from './booking/booking.component';
 import { CarsComponent } from './cars/cars.component';
 import { ContactComponent } from './contact/contact.component';
 import { AdminGuard } from './guards/adminGuard';
-import { AuthGuardGuard } from './guards/auth-guard.guard';
 import { LoggedInGuard } from './guards/logged-in.guard';
 import { HelpComponent } from './help/help.component';
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { PaymentComponent } from './payment/payment.component';
@@ -40,11 +38,6 @@ const routes: Routes = [
   {
     path: 'contact', 
     component: ContactComponent
-  },
-  {
-    path: 'login', 
-    component: LoginComponent,
-    canActivate: [LoggedInGuard]
   },
   {
     path: 'manageUsers',
