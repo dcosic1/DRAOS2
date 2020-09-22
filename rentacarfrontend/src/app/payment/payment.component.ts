@@ -9,8 +9,6 @@ import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
 import { timer } from 'rxjs';
 import { CarService } from '../shared/car.service';
-import { resolveReflectiveProviders } from '@angular/core/src/di/reflective_provider';
-
 
 @Component({
   selector: 'app-payment',
