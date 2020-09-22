@@ -19,7 +19,6 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatTabsModule} from '@angular/material/tabs';
 import { HttpClientModule } from '@angular/common/http'; 
-import {LoginComponent} from './login/login.component';
 import { AngularWebStorageModule } from 'angular-web-storage';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -37,7 +36,6 @@ import {NgxPaginationModule} from 'ngx-pagination';
     BookingComponent,
     ContactComponent,
     RegistrationComponent,
-    LoginComponent,
     ManageUsersComponent,
     PaymentComponent,
     CarComponentComponent
