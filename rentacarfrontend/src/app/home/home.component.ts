@@ -16,8 +16,8 @@ export class HomeComponent implements OnInit {
   dateValid = false;
   dpConfig: Partial<BsDatepickerConfig> = new BsDatepickerConfig();
   filterCriteria: FilterCriteria = new FilterCriteria();
-  carsBrand = ['All brands', 'Mercedes', 'Audi', 'Toyota', 'Volkswagen', 'Hyundai'];
-  carsType = ['All types','Coupe', 'Sedan', 'SUV', 'Cabriolet', 'Minivan'];
+  carsBrand = ['All brands', 'Mercedes', 'Audi', 'BMW', 'Volkswagen', 'Lexus'];
+  carsType = ['All types','Coupe', 'Sedan', 'SUV', 'Cabriolet', 'Caravan'];
   angForm: FormGroup;
   constructor(private router: Router, private fb: FormBuilder) { }
 

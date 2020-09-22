@@ -15,9 +15,9 @@
               <div class="card-body">
                 <form class="pb-3">
                   <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search" [(ngModel)] = "filterCriteria.searchCriteria" name="search" (change)="onSearch()">
+                    <input type="text" class="form-control" placeholder="Search by brand" [(ngModel)] = "filterCriteria.searchCriteria" name="search" (change)="onSearch()">
                     <div class="input-group-append">
-                      <button class="btn btn-light" type="button"><i class="fa fa-search" (click) = "onSearch()"></i></button>
+                      <button class="btn btn-light" type="button" data-toggle="tooltip" data-placement="top" (click) = "onSearch()" title="Search is case sensitive ex:'Mer'"><i class="fa fa-search" data-toggle="tooltip" data-placement="top" (click) = "onSearch()" title="Search is case sensitive ex:'Mer'"></i></button>
                     </div>
                   </div>
                 </form>
@@ -67,14 +67,14 @@
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label>Min</label>
-                    <input (change) = "filterByPrice()" class="form-control" placeholder="$0" type="number" [(ngModel)] = "filterCriteria.minPrice">
+                    <input class="form-control" placeholder="$0" type="number" [(ngModel)] = "filterCriteria.minPrice">
                   </div>
                   <div class="form-group text-right col-md-6">
                     <label>Max</label>
-                    <input (change) = "filterByPrice()" class="form-control" placeholder="$400" type="number" [(ngModel)] = "filterCriteria.maxPrice" (change)="onSliderChange()" >
+                    <input  class="form-control" placeholder="$400" type="number" [(ngModel)] = "filterCriteria.maxPrice" (change)="onSliderChange()" >
                   </div>
                 </div> <!-- form-row.// -->
-                <button class="btn btn-block btn-primary" [disabled]="!filterCriteria.maxPrice && !filterCriteria.minPrice" (click) = "filterByPrice()">Apply</button>
+                <button class="btn btn-block btn-primary"  (click) = "filterByPrice()">Apply</button>
               </div><!-- card-body.// -->
             </div>
           </article> <!-- filter-group .// -->
@@ -110,9 +110,12 @@
         </div>
       </main> <!-- col.// -->
     </div>
-    <div class="col-md-9 pagination" *ngIf="carsList.length > 5  ">
+    <main class="col-md-12 pagination">
+<div class="" *ngIf="carsList.length > 5  ">
       <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
     </div>
+    </main >
+    
   </div> <!-- container .//  -->
   <br>
 </section>

@@ -23,8 +23,7 @@
   list-style: none;
   border-radius: 0.37rem;
   align-items: center;
-  margin-left: 600px;
-  margin-right: 600px;
+  padding-left: 600px;
 }
 .sort {
   margin-top: 20px;

@@ -1,7 +1,7 @@
 
-  <div class="row" style="margin-bottom: 8px;">
+  <div class="row" style="margin-bottom: 13px;">
     <div class="col-lg-5" >
-      <img src="{{car.imageUrl}}" class="card-img-top" alt="...">
+      <img src="{{car.imageUrl[0]}}" class="card-img-top" alt="...">
     </div>
     <div class="card-body col-lg-7">
       <h5 class="card-title text"> {{car.brand}} {{car.model}} </h5>
@@ -25,7 +25,11 @@
     </button>
   </div>
   <div class="modal-body">
-        <img [src]="car?.imageUrl" style="display: block; width: 100%;">
+    <carousel id="carModalSlideShow">
+      <slide *ngFor="let image of car?.imageUrl">
+        <img [src]="image" style="display: block; width: 100%;">
+      </slide>
+    </carousel>
     <hr>
     <p> {{car.description}} </p>
     <p > <b>Year: </b> {{car.year}} </p>

@@ -7,28 +7,28 @@
         "pricePerDay":200,
         "year":2018,
         "carType":"Sedan",
-        "imageUrl": "assets/images/cars/mercedessclass.jpg",
+        "imageUrl": ["assets/images/cars/mercedes-sedan1.jpg", "assets/images/cars/mercedes-sedan2.jpg","assets/images/cars/mercedes-sedan3.jpg"],
         "reserved": [["2020-09-30","2020-10-21"]]
      },
      {
         "carId": 2,
         "brand":"Audi",
-        "model":"A6",
+        "model":"Q3",
         "description":"Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.",
         "pricePerDay":150,
         "year":2018,
-        "carType":"Sedan",
-        "imageUrl": "assets/images/cars/audia6.jpg"
+        "carType":"SUV",
+        "imageUrl": ["assets/images/cars/audiq3-1.jpg","assets/images/cars/audiq3-2.jpg","assets/images/cars/audiq3-3.jpg","assets/images/cars/audiq3-4.jpg"]
      },
      {
         "carId": 3,
         "brand":"Mercedes",
-        "model":"E Class",
+        "model":"C Class",
         "description":"Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.",
         "pricePerDay":100,
         "year":2018,
-        "carType":"Coupe",
-        "imageUrl": "assets/images/cars/mercedese.webp"
+        "carType":"Cabriolet",
+        "imageUrl": ["assets/images/cars/merc-cabriolet1.jpg", "assets/images/cars/merc-cabriolet2.jpg", "assets/images/cars/merc-cabriolet3.jpg", "assets/images/cars/merc-cabriolet4.jpg"]
      },
      {
         "carId": 4,
@@ -37,8 +37,8 @@
         "description":"Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.",
         "pricePerDay":200,
         "year":2018,
-        "carType":"SUV",
-        "imageUrl":"assets/images/cars/passat.jpg",
+        "carType":"Caravan",
+        "imageUrl":["assets/images/cars/vw-pasat1.jpg","assets/images/cars/vw-pasat2.jpg", "assets/images/cars/vw-pasat3.jpg"],
         "reserved": [["2020-09-30","2020-10-21"]]
      },
      {
@@ -48,28 +48,28 @@
         "description":"Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.",
         "pricePerDay":200,
         "year":2018,
-        "carType":"Minivan",
-        "imageUrl":"assets/images/cars/golf7.jpg"
+        "carType":"Sedan",
+        "imageUrl":["assets/images/cars/vw.jpg","assets/images/cars/vw1.jpg", "assets/images/cars/vw2.jpg", "assets/images/cars/vw3.jpg"]
      },
      {
       "carId": 6,
         "brand":"BMW",
-        "model":"7",
+        "model":"4",
         "description":"Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.",
-        "pricePerDay":200,
+        "pricePerDay":85,
         "year":2018,
-        "carType":"Sedan",
-        "imageUrl":"assets/images/cars/bmw7.jpg"
+        "carType":"Coupe",
+        "imageUrl":["assets/images/cars/bmw4-coupe.jpg", "assets/images/cars/bmw4-coupe2.jpg", "assets/images/cars/bmw4-coupe3.jpg"]
      },
      {
       "carId": 7,
         "brand":"BMW",
-        "model":"5",
+        "model":"X4",
         "description":"Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.",
         "pricePerDay":200,
         "year":2018,
-        "carType":"Cabriolet",
-        "imageUrl":"assets/images/cars/bmw5.jpg"
+        "carType":"SUV",
+        "imageUrl":["assets/images/cars/bmw-x4.jpg","assets/images/cars/bmw-x4-1.jpg","assets/images/cars/bmw-x4-2.jpg"]
      },
      {
       "carId": 8,
@@ -78,7 +78,7 @@
         "description":"Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.",
         "pricePerDay":200,
         "year":2018,
-        "carType":"Cabriolet",
-        "imageUrl":"assets/images/cars/lexusls.jpg"
+        "carType":"Sedan",
+        "imageUrl":["assets/images/cars/lexus1.jpg", "assets/images/cars/lexus2.jpg", "assets/images/cars/lexus3.jpg"]
      }
 ]

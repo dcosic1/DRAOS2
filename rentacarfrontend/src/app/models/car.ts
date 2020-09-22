@@ -6,7 +6,7 @@ export class Car {
   seatNumber: number;
   description: string;
   carType: string;
-  imgUrl?: string;
+  imgUrl?: string[];
   pricePerDay: number;
   isAvailable: boolean;
   reserved?: [Date,Date][];

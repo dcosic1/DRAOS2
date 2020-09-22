@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contact',
@@ -11,7 +13,7 @@ export class ContactComponent implements OnInit {
   contactForm: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,private router: Router) { }
 
   ngOnInit() {
     this.contactForm = this.formBuilder.group({
@@ -30,9 +32,13 @@ export class ContactComponent implements OnInit {
     // stop here if form is invalid
     if (this.contactForm.invalid) {
       return;
-    }
+    } 
 
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.contactForm.value))
+    swal.fire({
+      icon: "success",
+      title: "Success",
+      text: "Your message has been successfully sent. Thank you."
+    }).then(() => { this.router.navigate(["home"]) });
   }
 
 }

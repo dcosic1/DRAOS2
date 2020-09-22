@@ -19,8 +19,8 @@ export class CarsComponent implements OnInit {
   paginationConfig: any;
   filterCriteria: FilterCriteria = new FilterCriteria();
   radioButton: string;
-  carsBrand = ['Mercedes', 'Audi', 'Toyota', 'Volkswagen', 'Hyundai'];
-  carsType = ['All types','Coupe', 'Sedan', 'SUV', 'Cabriolet', 'Minivan'];
+  carsBrand = ['Mercedes', 'Audi', 'BMW', 'Volkswagen', 'Lexus'];
+  carsType = ['All types','Coupe', 'Sedan', 'SUV', 'Cabriolet', 'Caravan'];
 
   queryParams: any;
   constructor(private carService: CarService, private route: ActivatedRoute) {
@@ -64,7 +64,7 @@ export class CarsComponent implements OnInit {
         })
         if (cars) {
           this.paginationConfig = {
-            itemsPerPage: 4,
+            itemsPerPage: 3,
             currentPage: 1,
             totalItems: this.carsList.length
           };
@@ -143,15 +143,44 @@ export class CarsComponent implements OnInit {
     this.radioButton = $event.target.id
     if($event.target.id === this.carsType[0]){
       this.radioButton = ''
+      if(this.filteredCars.length){
+        this.carsList = this.filteredCars;
+      } else {
         this.carsList = this.cars;
+      }
+        
     } else {
-      this.carsList = this.cars.filter(c=> c.carType == $event.target.id);
+      if(this.filteredCars.length){
+        this.carsList = this.filteredCars.filter(c=> c.carType == $event.target.id);
+      } else {
+        this.carsList = this.cars.filter(c=> c.carType == $event.target.id);
+      }
+      
     }
   }
 
   filterByPrice() {
-    const listCar = this.carsList;
-    this.carsList = listCar.filter(c=> c.pricePerDay >= this.filterCriteria.minPrice && c.pricePerDay <= this.filterCriteria.maxPrice);
-    
+    if(this.radioButton){
+      if(this.filteredCars.length){
+        this.carsList = this.filteredCars.filter(c=> c.pricePerDay >= this.filterCriteria.minPrice && c.pricePerDay <= this.filterCriteria.maxPrice && c.carType === this.radioButton);
+      }
+      else {
+        this.carsList = this.cars.filter(c=> c.pricePerDay >= this.filterCriteria.minPrice && c.pricePerDay <= this.filterCriteria.maxPrice && c.carType === this.radioButton);
+      }
+      if((this.filterCriteria.minPrice == null &&  this.filterCriteria.maxPrice == null)) {
+        this.carsList = this.cars.filter(c => c.carType === this.radioButton);
+      }
+    } else {
+          if(this.filteredCars.length){
+      this.carsList = this.filteredCars.filter(c=> c.pricePerDay >= this.filterCriteria.minPrice && c.pricePerDay <= this.filterCriteria.maxPrice);
+    }
+    else {
+      this.carsList = this.cars.filter(c=> c.pricePerDay >= this.filterCriteria.minPrice && c.pricePerDay <= this.filterCriteria.maxPrice);
+    }
+    if((this.filterCriteria.minPrice == null &&  this.filterCriteria.maxPrice == null)) {
+      this.carsList = this.cars
+    }
+    }
+
   }
 }
